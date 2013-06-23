@@ -12,6 +12,8 @@ public class CursoAlumno {
 
     private String codAlumno;
     private String codCurso;
+    private Alumno alumno;
+    private Cursos cursos;
 
     public CursoAlumno() {
     }
