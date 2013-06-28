@@ -3,11 +3,13 @@ package ProyectAsistencia;
 import java.util.Date;
 public class Sesiones {
 	
-	private Date horIni;
-	private Date horFinal;
-	private String tipoSesion;
-	private Docente doc;
-	private Cursos cursos;
+    private Date horIni;
+    private Date horFinal;
+    private String tipoSesion;
+    private Docente doc;
+    private Cursos cursos;
+    private Administrativo administrativo;
+    
     public Sesiones() {
     }
     
