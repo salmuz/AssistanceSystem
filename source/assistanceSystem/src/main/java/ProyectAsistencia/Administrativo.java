@@ -2,11 +2,11 @@ package ProyectAsistencia;
  
 import java.util.Scanner;
 
-public class Administrativo extends Persona{
+public class Administrativo extends Usuario{
 	
 	Scanner d = new Scanner(System.in);
-//	private String nombre;
-//	private String codigo;
+	private String nombre;
+	private String codigo;
 	private String area;
     
     public Administrativo(String cod, String nom) {

@@ -2,9 +2,10 @@ package ProyectAsistencia;
 
 import java.util.Scanner;
 
-public class Docente extends Persona{
+public class Docente extends Usuario{
 	
-    private String curso;
+    private String nombre;
+    private String codigo;
 
     public Docente(){
     }	
