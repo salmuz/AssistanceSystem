@@ -55,9 +55,9 @@ public class frmIngreso extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Usuario");
+        jLabel1.setText("UsuarioSistemas");
 
-        jLabel2.setText("Contrase–a");
+        jLabel2.setText("Contraseï¿½a");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel3.setText("Sistema de Calificaciones");
@@ -165,7 +165,7 @@ public class frmIngreso extends javax.swing.JFrame {
                  //   mensajeSistema.showMessageDialog(this, "Password Incorrecto !!!", "Ingreso al Sistema", JOptionPane.ERROR_MESSAGE);
                 //}
            //  } else {
-             //    mensajeSistema.showMessageDialog(this, "Usuario no encontrado !!!", "Ingreso al Sistema", JOptionPane.ERROR_MESSAGE);
+             //    mensajeSistema.showMessageDialog(this, "UsuarioSistemas no encontrado !!!", "Ingreso al Sistema", JOptionPane.ERROR_MESSAGE);
             // }
         } catch (EOFException eof) {
         } catch (IOException ioe) {
