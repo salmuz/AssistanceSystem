@@ -6,6 +6,7 @@ public class Alumno extends Persona implements Serializable {
 
     private String codigo;
     private String promocion; 
+    int length;
 
     public Alumno() {
     }
