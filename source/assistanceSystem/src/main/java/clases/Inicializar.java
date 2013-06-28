@@ -63,7 +63,7 @@ public class Inicializar {
     Cursos cur2 = new Cursos("301","Algoritmica II","Ciclo II");
     Cursos cur3 = new Cursos("403","Calculo I","Ciclo I");
     Cursos cur4 = new Cursos("501","Fisica I","Ciclo I");
-    Cursos cur5 = new Cursos("605","Diseño Grafico","Ciclo III");
+    Cursos cur5 = new Cursos("605","Diseno Grafico","Ciclo III");
     Cursos cur6 = new Cursos("701","Organizacion y administracion","Ciclo III");
     Cursos cur7 = new Cursos("802","Matematica basica II","Ciclo II");
     
