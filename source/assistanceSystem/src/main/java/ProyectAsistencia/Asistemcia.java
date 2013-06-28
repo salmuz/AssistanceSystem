@@ -4,7 +4,7 @@ package ProyectAsistencia;
 public class Asistemcia {
 	
 	private String silabxSem;
-	private Docente docene;
+	private Docente docente;
 	private Alumno alumno;
 	
     public Asistemcia() {
