@@ -20,13 +20,14 @@ public class Grupo implements Serializable {
         alumnos = new ArrayList<Alumno>();
     }
 
-    public Grupo(Cursos cursos, int nroGrupo, int aula, int cantAlu, Docente docente) {
-        this();
+    public Grupo(String codigo, int aula, int cantAlu, int nroGrupo, Docente docente, Cursos cursos, List<Alumno> alumnos) {
+        this.codigo = codigo;
         this.aula = aula;
         this.cantAlu = cantAlu;
         this.nroGrupo = nroGrupo;
         this.docente = docente;
         this.cursos = cursos;
+        this.alumnos = alumnos;
     }
 
     public void setAula(int aula) {
