@@ -7,6 +7,7 @@ public class Docente extends UsuarioSistemas implements Serializable {
     private String codigo;
 
     public Docente(){
+        
     }
 
     public Docente(String dni, String nom, String password, String usuario, String codigo) {
@@ -26,7 +27,7 @@ public class Docente extends UsuarioSistemas implements Serializable {
             return codigo;
     }
 
-    public String getNom(){
+    public String getNombre(){
             return getNombre();
     }
 

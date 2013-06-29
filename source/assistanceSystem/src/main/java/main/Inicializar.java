@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main;
 
 import clases.Administrativo;
@@ -11,6 +8,7 @@ import clases.Cursos;
 import clases.Docente;
 import clases.Grupo;
 import clases.Sesiones;
+import clases.VerificaSesion;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,10 +16,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author c0mput3r
- */
 public class Inicializar {
 
     public List<Sesiones> inicializaSessiones(List<Grupo> grupos) {
@@ -41,8 +35,22 @@ public class Inicializar {
             Sesiones sesion03T = new Sesiones(7, hora.parse("10:00:00"), hora.parse("11:59:59"), "Miercoles", "T", grupos.get(2));
             Sesiones sesion03P = new Sesiones(8, hora.parse("08:00:00"), hora.parse("09:59:59"), "Miercoles", "P", grupos.get(2));
             Sesiones sesion03L = new Sesiones(9, hora.parse("12:00:00"), hora.parse("14:59:59"), "Miercoles", "L", grupos.get(2));
-
-            // falta para los demas grupos y cuidado con que se cruzen los horarios
+            
+            
+            Sesiones sesion04T = new Sesiones(10, hora.parse("03:00:00"), hora.parse("04:59:59"), "Jueves", "T", grupos.get(3));
+            Sesiones sesion04P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
+            Sesiones sesion04L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
+            
+            
+            /*Sesiones sesion05T = new Sesiones(10, hora.parse("03:00:00"), hora.parse("04:59:59"), "Jueves", "T", grupos.get(3));
+            Sesiones sesion05P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
+            Sesiones sesion05L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
+            
+            
+            Sesiones sesion06T = new Sesiones(10, hora.parse("03:00:00"), hora.parse("04:59:59"), "Jueves", "T", grupos.get(3));
+            Sesiones sesion06P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
+            Sesiones sesion06L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
+            */// falta para los demas grupos y cuidado con que se cruzen los horarios
 
             sesiones.add(sesion01L);
             sesiones.add(sesion01P);
@@ -65,7 +73,8 @@ public class Inicializar {
 
     public List<Grupo> inicializaGrupos(List<Docente> docentes, List<Alumno> alumnos, List<Cursos> curso) {
         List<Grupo> grupos = new ArrayList<Grupo>();
-
+       
+       
 
         Grupo g1 = new Grupo("001", 101, 30, 1, docentes.get(0), curso.get(0), alumnos.subList(0, 30));
         Grupo g2 = new Grupo("002", 102, 30, 2, docentes.get(1), curso.get(1), alumnos.subList(10, 40));

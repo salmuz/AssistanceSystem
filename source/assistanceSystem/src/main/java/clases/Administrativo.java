@@ -31,8 +31,7 @@ public class Administrativo extends UsuarioSistemas implements Serializable {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-
-    @Override
+    
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Administrativo)) return false;
@@ -44,8 +43,7 @@ public class Administrativo extends UsuarioSistemas implements Serializable {
         return true;
     }
 
-    @Override
-    public int hashCode() {
+    public int hashCode(){
         return codigo != null ? codigo.hashCode() : 0;
     }
 }

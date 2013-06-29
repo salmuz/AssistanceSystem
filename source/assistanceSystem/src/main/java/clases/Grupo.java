@@ -53,6 +53,9 @@ public class Grupo implements Serializable {
     public int getNroGrupo() {
         return nroGrupo;
     }
+    public int getNroGrupo(int i){
+    	return nroGrupo;
+    }
     
     public void anadirAlumno(Alumno alumno){
         alumnos.add(alumno);
@@ -72,6 +75,10 @@ public class Grupo implements Serializable {
     
     public List<Alumno> getAlumno() {
         return alumnos;
+    }
+    
+    public Docente getDocente() {
+        return docente;
     }
 
     public String toString() {
