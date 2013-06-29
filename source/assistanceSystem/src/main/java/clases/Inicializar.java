@@ -11,11 +11,9 @@ import clases.Cursos;
 import clases.Docente;
 import clases.Grupo;
 import clases.Sesiones;
-import com.sun.tools.example.debug.bdi.SessionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,30 +32,30 @@ public class Inicializar {
             Sesiones sesion01T = new Sesiones(1, hora.parse("10:00:00"), hora.parse("11:59:59"), "Lunes", "T", grupos.get(0));
             Sesiones sesion01P = new Sesiones(2, hora.parse("16:00:00"), hora.parse("17:59:59"), "Lunes", "P", grupos.get(0));
             Sesiones sesion01L = new Sesiones(3, hora.parse("08:00:00"), hora.parse("09:59:59"), "Lunes", "L", grupos.get(0));
-            
+
             Sesiones sesion02T = new Sesiones(4, hora.parse("14:00:00"), hora.parse("16:59:59"), "Martes", "T", grupos.get(1));
             Sesiones sesion02P = new Sesiones(5, hora.parse("10:00:00"), hora.parse("11:59:59"), "Martes", "P", grupos.get(1));
             Sesiones sesion02L = new Sesiones(6, hora.parse("08:00:00"), hora.parse("09:59:59"), "Martes", "L", grupos.get(1));
-            
-            
+
+
             Sesiones sesion03T = new Sesiones(7, hora.parse("10:00:00"), hora.parse("11:59:59"), "Miercoles", "T", grupos.get(2));
             Sesiones sesion03P = new Sesiones(8, hora.parse("08:00:00"), hora.parse("09:59:59"), "Miercoles", "P", grupos.get(2));
             Sesiones sesion03L = new Sesiones(9, hora.parse("12:00:00"), hora.parse("14:59:59"), "Miercoles", "L", grupos.get(2));
-            
+
             // falta para los demas grupos y cuidado con que se cruzen los horarios
-            
+
             sesiones.add(sesion01L);
             sesiones.add(sesion01P);
             sesiones.add(sesion01T);
-            
+
             sesiones.add(sesion02L);
             sesiones.add(sesion02P);
             sesiones.add(sesion02T);
-            
+
             sesiones.add(sesion03L);
             sesiones.add(sesion03P);
             sesiones.add(sesion03T);
-            
+
         } catch (ParseException ex) {
             Logger.getLogger(Inicializar.class.getName()).log(Level.SEVERE, null, ex);
         }
