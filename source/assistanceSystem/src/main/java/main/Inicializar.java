@@ -37,7 +37,7 @@ public class Inicializar {
             Sesiones sesion03L = new Sesiones(9, hora.parse("12:00:00"), hora.parse("14:59:59"), "Miercoles", "L", grupos.get(2));
             
             
-            Sesiones sesion04T = new Sesiones(10, hora.parse("03:00:00"), hora.parse("04:59:59"), "Jueves", "T", grupos.get(3));
+            Sesiones sesion04T = new Sesiones(10, hora.parse("01:00:00"), hora.parse("02:59:59"), "Domingo", "T", grupos.get(3));
             Sesiones sesion04P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
             Sesiones sesion04L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
             
@@ -63,6 +63,10 @@ public class Inicializar {
             sesiones.add(sesion03L);
             sesiones.add(sesion03P);
             sesiones.add(sesion03T);
+            
+            sesiones.add(sesion04L);
+            sesiones.add(sesion04P);
+            sesiones.add(sesion04T);
 
         } catch (ParseException ex) {
             Logger.getLogger(Inicializar.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,20 +78,26 @@ public class Inicializar {
     public List<Grupo> inicializaGrupos(List<Docente> docentes, List<Alumno> alumnos, List<Cursos> curso) {
         List<Grupo> grupos = new ArrayList<Grupo>();
        
-       
-
         Grupo g1 = new Grupo("001", 101, 30, 1, docentes.get(0), curso.get(0), alumnos.subList(0, 30));
         Grupo g2 = new Grupo("002", 102, 30, 2, docentes.get(1), curso.get(1), alumnos.subList(10, 40));
         Grupo g3 = new Grupo("003", 204, 30, 1, docentes.get(2), curso.get(2), alumnos.subList(0, 30));
-        Grupo g4 = new Grupo("004", 207, 30, 2, docentes.get(3), curso.get(3), alumnos.subList(10, 40));
+        Grupo g4 = new Grupo("004", 207, 30, 2, docentes.get(3), curso.get(3), alumnos.subList(20, 40));
         Grupo g5 = new Grupo("005", 105, 30, 1, docentes.get(4), curso.get(4), alumnos.subList(0, 30));
         Grupo g6 = new Grupo("006", 103, 30, 2, docentes.get(5), curso.get(5), alumnos.subList(0, 30));
         Grupo g7 = new Grupo("007", 201, 30, 1, docentes.get(6), curso.get(6), alumnos.subList(0, 30));
+        
+        grupos.add(g1);
+        grupos.add(g2);
+        grupos.add(g3);
+        grupos.add(g4);
+        grupos.add(g5);
+        grupos.add(g6);
+        grupos.add(g7);
 
         return grupos;
     }
 
-    public List<Administrativo> inicializaAreas(List<Area> areas) {
+    public List<Administrativo> inicializaAdministrativos(List<Area> areas) {
         List<Administrativo> administrativos = new ArrayList<Administrativo>();
         int limiteInferior = 0;
         int limiteSuperior = areas.size();
