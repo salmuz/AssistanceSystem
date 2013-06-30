@@ -37,21 +37,25 @@ public class Inicializar {
             Sesiones sesion03L = new Sesiones(9, hora.parse("12:00:00"), hora.parse("14:59:59"), "Miercoles", "L", grupos.get(2));
             
             
-            Sesiones sesion04T = new Sesiones(10, hora.parse("01:00:00"), hora.parse("02:59:59"), "Domingo", "T", grupos.get(3));
-            Sesiones sesion04P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
-            Sesiones sesion04L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
+            Sesiones sesion04T = new Sesiones(10, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "T", grupos.get(3));
+            Sesiones sesion04P = new Sesiones(11, hora.parse("10:00:00"), hora.parse("11:59:59"), "Jueves", "P", grupos.get(3));
+            Sesiones sesion04L = new Sesiones(12, hora.parse("12:00:00"), hora.parse("14:59:59"), "Jueves", "L", grupos.get(3));
             
             
-            /*Sesiones sesion05T = new Sesiones(10, hora.parse("03:00:00"), hora.parse("04:59:59"), "Jueves", "T", grupos.get(3));
-            Sesiones sesion05P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
-            Sesiones sesion05L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
+            Sesiones sesion05T = new Sesiones(13, hora.parse("10:00:00"), hora.parse("11:59:59"), "Viernes", "T", grupos.get(3));
+            Sesiones sesion05P = new Sesiones(14, hora.parse("13:00:00"), hora.parse("14:59:59"), "Viernes", "P", grupos.get(3));
+            Sesiones sesion05L = new Sesiones(15, hora.parse("15:00:00"), hora.parse("16:59:59"), "Viernes", "L", grupos.get(3));
             
             
-            Sesiones sesion06T = new Sesiones(10, hora.parse("03:00:00"), hora.parse("04:59:59"), "Jueves", "T", grupos.get(3));
-            Sesiones sesion06P = new Sesiones(11, hora.parse("04:00:00"), hora.parse("06:59:59"), "Jueves", "P", grupos.get(3));
-            Sesiones sesion06L = new Sesiones(12, hora.parse("08:00:00"), hora.parse("09:59:59"), "Jueves", "L", grupos.get(3));
-            */// falta para los demas grupos y cuidado con que se cruzen los horarios
-
+            Sesiones sesion06T = new Sesiones(16, hora.parse("08:00:00"), hora.parse("09:59:59"), "Sabado", "T", grupos.get(3));
+            Sesiones sesion06P = new Sesiones(17, hora.parse("10:00:00"), hora.parse("11:59:59"), "Sabado", "P", grupos.get(3));
+            Sesiones sesion06L = new Sesiones(18, hora.parse("12:00:00"), hora.parse("14:59:59"), "Sabado", "L", grupos.get(3));
+            
+            
+            Sesiones sesion07T = new Sesiones(19, hora.parse("15:00:00"), hora.parse("16:59:59"), "Sabado", "T", grupos.get(3));
+            Sesiones sesion07P = new Sesiones(20, hora.parse("17:00:00"), hora.parse("18:59:59"), "Sabado", "P", grupos.get(3));
+            Sesiones sesion07L = new Sesiones(21, hora.parse("19:00:00"), hora.parse("20:59:59"), "Sabado", "L", grupos.get(3));
+           
             sesiones.add(sesion01L);
             sesiones.add(sesion01P);
             sesiones.add(sesion01T);
@@ -67,6 +71,18 @@ public class Inicializar {
             sesiones.add(sesion04L);
             sesiones.add(sesion04P);
             sesiones.add(sesion04T);
+            
+            sesiones.add(sesion05L);
+            sesiones.add(sesion05P);
+            sesiones.add(sesion05T);
+            
+            sesiones.add(sesion06L);
+            sesiones.add(sesion06P);
+            sesiones.add(sesion06T);
+            
+            sesiones.add(sesion07L);
+            sesiones.add(sesion07P);
+            sesiones.add(sesion07T);
 
         } catch (ParseException ex) {
             Logger.getLogger(Inicializar.class.getName()).log(Level.SEVERE, null, ex);
