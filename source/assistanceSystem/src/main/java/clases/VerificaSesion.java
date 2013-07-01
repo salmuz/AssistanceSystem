@@ -22,9 +22,8 @@ import main.Inicializar;
 
 public class VerificaSesion {
 
-    public List<Alumno> retornaAlumnosPorDocentePorSession(List<Sesiones> sesiones) {
+    public Sesiones retornaAlumnosPorDocentePorSession(List<Sesiones> sesiones) {
         Date diasistema = new Date();
-        List<Alumno> a = new ArrayList<Alumno>();
         for (int i = 0; i < sesiones.size(); i++) {
             Sesiones sesion = sesiones.get(i);
             Grupo group = sesion.getGrupo();
@@ -33,14 +32,14 @@ public class VerificaSesion {
                     SimpleDateFormat hora = new SimpleDateFormat("HH:mm:ss");
                     Date d = hora.parse(conver(diasistema, "HH:mm:ss"));
                     if (sesion.getHoraIni().before(d) && sesion.getHoraFinal().after(d)) {
-                        a = group.getAlumno();
+                        return sesion;
                     }
                 } catch (ParseException ex) {
                     System.out.println("ERRROR DEL SISTEMA");
                 }
             }
         }
-        return a;
+        return null;
     }
 
     public static String conver(Date fecha, String formato) {
@@ -63,7 +62,7 @@ public class VerificaSesion {
         List<Sesiones> sessiones = inicializar.inicializaSessiones(grupos);
 
         VerificaSesion verificaSesion = new VerificaSesion();
-        System.out.println(verificaSesion.retornaAlumnosPorDocentePorSession(sessiones).size());
+        System.out.println(verificaSesion.retornaAlumnosPorDocentePorSession(sessiones).getGrupo().getAlumno().size());
 
     }
 }

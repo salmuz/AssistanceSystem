@@ -27,9 +27,6 @@ public class Docente extends UsuarioSistemas implements Serializable {
             return codigo;
     }
 
-    public String getNombre(){
-            return getNombre();
-    }
 
     @Override
     public String toString() {

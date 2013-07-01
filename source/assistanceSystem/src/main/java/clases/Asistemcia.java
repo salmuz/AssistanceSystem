@@ -2,6 +2,7 @@ package clases;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Asistemcia implements Serializable {
@@ -11,6 +12,7 @@ public class Asistemcia implements Serializable {
     private List<DetalleAsistencia> detalleAsistencias;
 	
     public Asistemcia() {
+        detalleAsistencias = new ArrayList<DetalleAsistencia>();
     }
 
     public Sesiones getSesiones() {

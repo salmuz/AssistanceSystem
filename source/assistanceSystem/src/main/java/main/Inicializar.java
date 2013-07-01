@@ -23,9 +23,9 @@ public class Inicializar {
         try {
             SimpleDateFormat hora = new SimpleDateFormat("HH:mm:ss");
 
-            Sesiones sesion01T = new Sesiones(1, hora.parse("10:00:00"), hora.parse("11:59:59"), "Lunes", "T", grupos.get(0));
+            Sesiones sesion01T = new Sesiones(1, hora.parse("07:00:00"), hora.parse("11:59:59"), "Lunes", "T", grupos.get(0));
             Sesiones sesion01P = new Sesiones(2, hora.parse("16:00:00"), hora.parse("17:59:59"), "Lunes", "P", grupos.get(0));
-            Sesiones sesion01L = new Sesiones(3, hora.parse("08:00:00"), hora.parse("09:59:59"), "Lunes", "L", grupos.get(0));
+            Sesiones sesion01L = new Sesiones(3, hora.parse("14:00:00"), hora.parse("15:59:59"), "Lunes", "L", grupos.get(0));
 
             Sesiones sesion02T = new Sesiones(4, hora.parse("14:00:00"), hora.parse("16:59:59"), "Martes", "T", grupos.get(1));
             Sesiones sesion02P = new Sesiones(5, hora.parse("10:00:00"), hora.parse("11:59:59"), "Martes", "P", grupos.get(1));
@@ -162,7 +162,7 @@ public class Inicializar {
         Cursos cur2 = new Cursos("301", "Algoritmica II", "Ciclo II");
         Cursos cur3 = new Cursos("403", "Calculo I", "Ciclo I");
         Cursos cur4 = new Cursos("501", "Fisica I", "Ciclo I");
-        Cursos cur5 = new Cursos("605", "Diseño Grafico", "Ciclo III");
+        Cursos cur5 = new Cursos("605", "Dise?o Grafico", "Ciclo III");
         Cursos cur6 = new Cursos("701", "Organizacion y administracion", "Ciclo III");
         Cursos cur7 = new Cursos("802", "Matematica basica II", "Ciclo II");
 

@@ -4,17 +4,74 @@
  */
 package interfaces;
 
+import clases.Administrativo;
+import clases.Alumno;
+import clases.AmacenarAlumnos;
+import clases.Area;
+import clases.Asistemcia;
+import clases.Cursos;
+import clases.DetalleAsistencia;
+import clases.Docente;
+import clases.Grupo;
+import clases.Sesiones;
+import clases.VerificaSesion;
+import java.io.File;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import main.Inicializar;
+
 /**
  *
  * @author c0mput3r
  */
 public class FrameAlumnos extends javax.swing.JFrame {
 
+    private DefaultTableModel model;
+    private File file = new File("alumno.bin");
+    private Asistemcia asistencia ;
+
     /**
      * Creates new form FrameAlumnos
      */
     public FrameAlumnos() {
         initComponents();
+        this.model = (DefaultTableModel) jtalumno.getModel();
+        Inicializar inicializar = new Inicializar();
+        List<Alumno> alumnos = inicializar.inicializaAlumnos();
+        List<Cursos> cursos = inicializar.inicializaCursos();
+        List<Docente> docentes = inicializar.inicializaDocentes();
+        List<Area> areas = inicializar.inicializaAreas();
+        List<Administrativo> administrativos = inicializar.inicializaAdministrativos(areas);
+        List<Grupo> grupos = inicializar.inicializaGrupos(docentes, alumnos, cursos);
+        List<Sesiones> sessiones = inicializar.inicializaSessiones(grupos);
+
+        VerificaSesion verificaSesion = new VerificaSesion();
+        Sesiones sesion = verificaSesion.retornaAlumnosPorDocentePorSession(sessiones);
+        if( sesion !=null){
+            asistencia = AmacenarAlumnos.crearAsistencia(sesion, 1);
+            LlenarTabla();
+            curso.setText(asistencia.getSesiones().getGrupo().getCursos().getNom());
+            docente.setText(asistencia.getSesiones().getGrupo().getDocente().getNombre());
+            fecha.setText(new Date().toString());
+        }else{
+            System.out.println("nuevos");
+        }
+
+    }
+
+    public void LlenarTabla() {
+        model.setRowCount(0);// elimina todas la filas.
+        Collection<DetalleAsistencia> detCollection = asistencia.getDetalleAsistenciaList();
+        for (DetalleAsistencia det : detCollection) {
+            Vector datos = new Vector();
+            datos.add(det.getAlumno().getCodigo());
+            datos.add(det.getAlumno().getNombre());
+            datos.add(det.isAsistio());
+            model.addRow(datos);
+        }
     }
 
     /**
@@ -28,14 +85,14 @@ public class FrameAlumnos extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        curso = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        docente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtalumno = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        fecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,13 +105,13 @@ public class FrameAlumnos extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("DOCENTE");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        docente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                docenteActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtalumno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -99,7 +156,7 @@ public class FrameAlumnos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtalumno);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setText("SALIR");
@@ -128,12 +185,12 @@ public class FrameAlumnos extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(docente, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(47, 47, 47)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
@@ -148,13 +205,13 @@ public class FrameAlumnos extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(docente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -165,9 +222,9 @@ public class FrameAlumnos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void docenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_docenteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -208,15 +265,15 @@ public class FrameAlumnos extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField curso;
+    private javax.swing.JTextField docente;
+    private javax.swing.JTextField fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable jtalumno;
     // End of variables declaration//GEN-END:variables
 }

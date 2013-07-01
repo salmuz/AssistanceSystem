@@ -98,4 +98,21 @@ public class Grupo implements Serializable {
     public int hashCode() {
         return codigo != null ? codigo.hashCode() : 0;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Cursos getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(Cursos cursos) {
+        this.cursos = cursos;
+    }
+    
 }
