@@ -24,9 +24,9 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import main.Inicializar;
-import sun.org.mozilla.javascript.internal.ast.Assignment;
 
 /**
  *
@@ -76,6 +76,7 @@ public class FrameAlumnos extends javax.swing.JFrame {
             datos.add(det.getAlumno().getCodigo());
             datos.add(det.getAlumno().getNombre());
             datos.add(det.isAsistio());
+            datos.add(det.isTardanza());
             model.addRow(datos);
         }
     }
@@ -277,6 +278,7 @@ public class FrameAlumnos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       writer();
+        JOptionPane.showConfirmDialog(this, "Datos guardados satifactoriamente.");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
