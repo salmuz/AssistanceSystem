@@ -32,6 +32,14 @@ public class UsuarioSistemas extends Persona  implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public void setNombre(String nom){
+        this.nombre= nom;
+    }
+    
+    public String getNombre(){
+        return this.nombre;
+    }
 
 
 }

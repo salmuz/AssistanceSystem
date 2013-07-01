@@ -2,19 +2,35 @@
 package main;
 
 import clases.Administrativo;
+import clases.Administrativo;
+import clases.Administrativo;
+import clases.Alumno;
+import clases.Alumno;
 import clases.Alumno;
 import clases.Area;
+import clases.Area;
+import clases.Area;
+import clases.Cursos;
+import clases.Cursos;
 import clases.Cursos;
 import clases.Docente;
+import clases.Docente;
+import clases.Docente;
+import clases.Grupo;
+import clases.Grupo;
 import clases.Grupo;
 import clases.Sesiones;
-import clases.VerificaSesion;
+import clases.Sesiones;
+import clases.Sesiones;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 public class Inicializar {
 
@@ -286,4 +302,7 @@ public class Inicializar {
 
         return alumnos;
     }
-}
+    
+    
+}  
+

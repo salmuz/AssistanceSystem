@@ -1,12 +1,15 @@
 package clases;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Alumno extends Persona implements Serializable {
 
     private String codigo;
     private String promocion; 
     int length;
+    List<Alumno> al = new ArrayList<Alumno>();
 
     public Alumno() {
     }
@@ -18,36 +21,32 @@ public class Alumno extends Persona implements Serializable {
         this.promocion = promocion;
     }
 
-
-    /**
-     * @return the codigo
-
-     */
     public String getCodigo() {
         return codigo;
     }
 
-    /**
-     * @param codigo the codigo to set
-     */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     * @return the promocion
-     */
     public String getPromocion() {
         return promocion;
     }
 
-    /**
-     * @param promocion the promocion to set
-     */
     public void setPromocion(String promocion) {
         this.promocion = promocion;
     }
 
+    public static Alumno buscarAlu(String codigo, List<Alumno> al) {
+        Alumno a = null;
+        for (Alumno alu : al) {
+            if (alu.getCodigo().equals(codigo)) {
+                a = alu;
+            }
+        }
+        return a;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
