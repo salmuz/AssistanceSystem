@@ -20,6 +20,7 @@ import clases.VerificaSesion;
 import java.io.EOFException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -44,6 +45,7 @@ public class FrameAlumnos extends javax.swing.JFrame {
      */
     public FrameAlumnos() {
         initComponents();
+        asistenciasCollection = new ArrayList<Asistemcia>();
         this.model = (DefaultTableModel) jtalumno.getModel();
         Inicializar inicializar = new Inicializar();
         List<Alumno> alumnos = inicializar.inicializaAlumnos();
@@ -278,7 +280,8 @@ public class FrameAlumnos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       writer();
-        JOptionPane.showConfirmDialog(this, "Datos guardados satifactoriamente.");
+        JOptionPane.showMessageDialog(this, "Datos guardados satifactoriamente.");
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
